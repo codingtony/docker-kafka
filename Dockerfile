@@ -20,8 +20,8 @@ RUN apt-get update && \
     ca-certificates
 
 # Download Kafka binary distribution
-ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} /tmp/
-ADD https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5 /tmp/
+RUN wget https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE} -O /tmp/${KAFKA_RELEASE_ARCHIVE}
+RUN wget https://dist.apache.org/repos/dist/release/kafka/${KAFKA_VERSION}/${KAFKA_RELEASE_ARCHIVE}.md5 -O /tmp/${KAFKA_RELEASE_ARCHIVE}.md5
 
 WORKDIR /tmp
 
